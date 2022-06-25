@@ -306,7 +306,7 @@ def onmessage(update,bot:ObigramClient):
         # end
 
         # comandos de usuario
-        if '/version' in msgText:
+        if '/nube' in msgText:
             tuto = open('version.txt','r')
             bot.sendMessage(update.message.chat.id,tuto.read())
             tuto.close()
@@ -486,10 +486,17 @@ def onmessage(update,bot:ObigramClient):
         thread.store('msg',message)
 
         if '/start' in msgText:
-            start_msg = '⭐️ Hola! con este bot podrás descargar archivos gratis por datos móviles.\n\n'
-            start_msg+= '⁉️ Como Descargar\n\n'
-            start_msg+= '1. Envía el enlace directo.\n2. Usa el TXT de descarga que se generan con el 1DM.\n\n'
-            start_msg+= '🤖 Usa /version para conocer la versión actual del bot.\n'
+            start_msg = '╭────@'👋🏻 + str(username)+'\n│\n'
+            start_msg+= '├🤖Bot que permite borrar de:\n│\n'
+            start_msg+= '├ /uclv\n'
+            start_msg+= '├ /eva\n'
+            start_msg+= '├ /cursos\n'
+            start_msg+= '├ /posgrado\n'              
+            start_msg+= '├ /aulacened\n'
+            start_msg+= '├ /eduvirtual\n'
+            start_msg+= '├ Para mas nubes /nube\n'
+            start_msg+= '├ Para eliminar los archivos es con\n│el comando /delete y url al lado\n│\n'
+            start_msg+= '╰Que disfutes del bot🎐\n'
             bot.editMessageText(message,start_msg)
         elif '/files' == msgText and user_info['cloudtype']=='moodle':
              proxy = ProxyCloud.parse(user_info['proxy'])
@@ -520,7 +527,7 @@ def onmessage(update,bot:ObigramClient):
                  txtname = evindex['name']+'.txt'
                  sendTxt(txtname,evindex['files'],update,bot)
                  client.logout()
-                 bot.editMessageText(message,'Txt aquí 👇')
+                 bot.editMessageText(message,'Txt aquí')
              else:
                 bot.editMessageText(message,'❌ Error y causas\n1-Revise su Cuenta\n2-Servidor Desabilitado: '+client.path)
              pass
@@ -580,7 +587,7 @@ def onmessage(update,bot:ObigramClient):
             getUser['moodle_user'] = "---"
             getUser['moodle_password'] = "---"
             getUser['moodle_repo_id'] = 5
-            getUser['zips'] = 120
+            getUser['zips'] = 1
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
@@ -592,23 +599,11 @@ def onmessage(update,bot:ObigramClient):
             getUser['moodle_user'] = "---"
             getUser['moodle_password'] = "---"
             getUser['moodle_repo_id'] = 4
-            getUser['zips'] = 200
+            getUser['zips'] = 1
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
             bot.editMessageText(message,"✅Uclv configuration loaded")
-        elif '/aula_uclv' in msgText:
-            getUser = user_info
-            getUser['moodle_host'] = "https://aula.uclv.edu.cu/"
-            getUser['uploadtype'] =  "evidence"
-            getUser['moodle_user'] = "---"
-            getUser['moodle_password'] = "---"
-            getUser['moodle_repo_id'] = 5
-            getUser['zips'] = 60
-            jdb.save_data_user(username,getUser)
-            jdb.save()
-            statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-            bot.editMessageText(message,"✅Aula Uclv configuration loaded")
         elif '/eva' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "https://eva.uo.edu.cu/"
@@ -616,7 +611,7 @@ def onmessage(update,bot:ObigramClient):
             getUser['moodle_user'] = "---"
             getUser['moodle_password'] = "---"
             getUser['moodle_repo_id'] = 4
-            getUser['zips'] = 50
+            getUser['zips'] = 1
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
@@ -628,7 +623,7 @@ def onmessage(update,bot:ObigramClient):
             getUser['moodle_user'] = "---"
             getUser['moodle_password'] = "---"
             getUser['moodle_repo_id'] = 4
-            getUser['zips'] = 50
+            getUser['zips'] = 1
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
@@ -640,11 +635,23 @@ def onmessage(update,bot:ObigramClient):
             getUser['moodle_user'] = "---"
             getUser['moodle_password'] = "---"
             getUser['moodle_repo_id'] = 3
-            getUser['zips'] = 15
+            getUser['zips'] = 1
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
             bot.editMessageText(message,"✅Posgrado unica configuration loaded")
+        elif '/eduvirtual' in msgText:
+            getUser = user_info
+            getUser['moodle_host'] = "https://eduvirtual.uho.edu.cu/"
+            getUser['uploadtype'] =  "evidence"
+            getUser['moodle_user'] = "---"
+            getUser['moodle_password'] = "---"
+            getUser['moodle_repo_id'] = 3
+            getUser['zips'] = 1
+            jdb.save_data_user(username,getUser)
+            jdb.save()
+            statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
+            bot.editMessageText(message,"✅Eduvirtual configuration loaded")
         elif '/ismm' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "http://moodle.ismm.edu.cu/"
@@ -652,7 +659,7 @@ def onmessage(update,bot:ObigramClient):
             getUser['moodle_user'] = "---"
             getUser['moodle_password'] = "---"
             getUser['moodle_repo_id'] = 4
-            getUser['zips'] = 50
+            getUser['zips'] = 1
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
@@ -664,23 +671,23 @@ def onmessage(update,bot:ObigramClient):
             getUser['moodle_user'] = "---"
             getUser['moodle_password'] = "---"
             getUser['moodle_repo_id'] = 5
-            getUser['zips'] = 25
+            getUser['zips'] = 1
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
             bot.editMessageText(message,"✅Uvs configuration loaded")
-        elif '/eduvirtual' in msgText:
+        elif '/evea' in msgText:
             getUser = user_info
-            getUser['moodle_host'] = "https://eduvirtual.uho.edu.cu/"
-            getUser['uploadtype'] =  "evidence"
+            getUser['moodle_host'] = "https://evea.uh.cu/"
+            getUser['uploadtype'] =  "draft"
             getUser['moodle_user'] = "---"
             getUser['moodle_password'] = "---"
-            getUser['moodle_repo_id'] = 3
-            getUser['zips'] = 50
+            getUser['moodle_repo_id'] = 4
+            getUser['zips'] = 1
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-            bot.editMessageText(message,"✅Eduvirtual configuration loaded")
+            bot.editMessageText(message,"✅Uvs configuration loaded")
 
         elif 'http' in msgText:
             url = msgText
