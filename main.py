@@ -486,7 +486,7 @@ def onmessage(update,bot:ObigramClient):
         thread.store('msg',message)
 
         if '/start' in msgText:
-            start_msg = '╭────@'👋🏻 + str(username)+'\n│\n'
+            start_msg = '╭─────👋🏻 @' + str(username)+'\n│\n'
             start_msg+= '├🤖Bot que permite borrar de:\n│\n'
             start_msg+= '├ /uclv\n'
             start_msg+= '├ /eva\n'
