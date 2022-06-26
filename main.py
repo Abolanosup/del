@@ -264,7 +264,7 @@ def onmessage(update,bot:ObigramClient):
         except:pass
 
         # comandos de admin
-        if '/adduser' in msgText:
+        if '/add' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 try:
@@ -278,7 +278,7 @@ def onmessage(update,bot:ObigramClient):
             else:
                 bot.sendMessage(update.message.chat.id,'❌ No tiene permiso')
             return
-        if '/banuser' in msgText:
+        if '/ban' in msgText:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 try:
@@ -292,14 +292,6 @@ def onmessage(update,bot:ObigramClient):
                     bot.sendMessage(update.message.chat.id,msg)
                 except:
                     bot.sendMessage(update.message.chat.id,'❌ Error en el comando /banuser username')
-            else:
-                bot.sendMessage(update.message.chat.id,'❌ No tiene permiso')
-            return
-        if '/getdb' in msgText:
-            isadmin = jdb.is_admin(username)
-            if isadmin:
-                bot.sendMessage(update.message.chat.id,'📇 Base de datos')
-                bot.sendFile(update.message.chat.id,'database.jdb')
             else:
                 bot.sendMessage(update.message.chat.id,'❌ No tiene permiso')
             return
