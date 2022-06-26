@@ -1,1 +1,15 @@
-
+{
+  "name": "UwU DELETE",
+  "description": "EL de la idea de poner esta picha fui to Keima",
+  "env": {
+    "bot_token": {
+      "description": "Token del bot",
+      "value": ""
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-python.git"
+    }
+  ]
+}
