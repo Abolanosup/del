@@ -595,7 +595,7 @@ def onmessage(update,bot:ObigramClient):
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-            bot.editMessageText(message,"✅Uclv configuration loaded")
+            bot.editMessageText(message,"✅UCLV configuration loaded")
         elif '/eva' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "https://eva.uo.edu.cu/"
@@ -607,7 +607,7 @@ def onmessage(update,bot:ObigramClient):
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-            bot.editMessageText(message,"✅Eva configuration loaded")
+            bot.editMessageText(message,"✅EVA configuration loaded")
         elif '/cursos' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "https://cursos.uo.edu.cu/"
@@ -655,7 +655,7 @@ def onmessage(update,bot:ObigramClient):
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-            bot.editMessageText(message,"✅Ismm configuration loaded")
+            bot.editMessageText(message,"✅ISMM configuration loaded")
         elif '/uvs' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "https://uvs.ucm.cmw.sld.cu/"
@@ -667,7 +667,7 @@ def onmessage(update,bot:ObigramClient):
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-            bot.editMessageText(message,"✅Uvs configuration loaded")
+            bot.editMessageText(message,"✅UVS configuration loaded")
         elif '/evea' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "https://evea.uh.cu/"
@@ -679,7 +679,7 @@ def onmessage(update,bot:ObigramClient):
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-            bot.editMessageText(message,"✅Uvs configuration loaded")
+            bot.editMessageText(message,"✅EVEA configuration loaded")
 
         elif 'http' in msgText:
             url = msgText
